@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="unqualified" targetNamespace="http://www.edreams.com"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.edreams.com">
+
+	<xs:element name="busqueda"><!-- elemento global -->
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="idaVuelta" type="elementoVacio" />
+				<xs:element name="origen" type="listaAeropuerto" />
+				<xs:element name="destino" type="listaAeropuerto" />
+				<xs:element name="fechaSalida" type="xs:date" />
+				<xs:element name="fechaRegreso" type="xs:date" />
+				<xs:element name="cantidad" type="tipoCantidad" />
+				<xs:element name="escalasClase" type="tipoEscalasClase" />
+				<xs:element name="hotel" type="elementoVacio"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+	<!-- complejos -->
+
+	<xs:complexType name="tipoCantidad">
+		<xs:sequence>
+			<xs:element name="adultos" type="xs:int" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="ninos" type="xs:int" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="bebes" type="xs:int" minOccurs="0"
+				maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="tipoEscalasClase">
+		<xs:sequence>
+			<xs:element name="directo" type="elementoVacio" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="clase" type="tipoClase" minOccurs="0"
+				maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+
+	<!-- simples -->
+
+	<xs:simpleType name="listaAeropuerto">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PMI"></xs:enumeration>
+			<xs:enumeration value="MAD"></xs:enumeration>
+			<xs:enumeration value="BCN"></xs:enumeration>
+			<xs:enumeration value="NYC"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="elementoVacio">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="0" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="tipoClase">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Turista"></xs:enumeration>
+			<xs:enumeration value="Turista Superior"></xs:enumeration>
+			<xs:enumeration value="Business"></xs:enumeration>
+			<xs:enumeration value="Primera"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
