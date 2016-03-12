@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema attributeFormDefault="unqualified"
 	elementFormDefault="unqualified" targetNamespace="http://www.edreams.com"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.edreams.com">
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.edreams.com"
+	xmlns:wac="http://www.iata.com/wac">
 
+<xs:import namespace="http://www.iata.com/wac"
+		schemaLocation="https://raw.githubusercontent.com/dfleta/XML_teoria/master/import/ejercicio_IATA/WAC.xsd"></xs:import>
 	<xs:element name="busqueda"><!-- elemento global -->
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="idaVuelta" type="elementoVacio" />
-				<xs:element name="origen" type="listaAeropuerto" />
-				<xs:element name="destino" type="listaAeropuerto" />
+				<xs:element name="origen" type="wac:WAC" />
+				<xs:element name="destino" type="wac:WAC" />
 				<xs:element name="fechaSalida" type="xs:date" />
 				<xs:element name="fechaRegreso" type="xs:date" />
 				<xs:element name="cantidad" type="tipoCantidad" />
@@ -46,14 +49,6 @@
 
 	<!-- simples -->
 
-	<xs:simpleType name="listaAeropuerto">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="PMI"></xs:enumeration>
-			<xs:enumeration value="MAD"></xs:enumeration>
-			<xs:enumeration value="BCN"></xs:enumeration>
-			<xs:enumeration value="NYC"></xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
 
 	<xs:simpleType name="elementoVacio">
 		<xs:restriction base="xs:string">
