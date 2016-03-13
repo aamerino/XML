@@ -1,2 +1,2 @@
 # Ejercicios XML
-Proyectos XML realizados con eclipse.
+Proyectos XML realizados en eclipse.
