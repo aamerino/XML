@@ -50,12 +50,6 @@
 	<!-- simples -->
 
 
-	<xs:simpleType name="elementoVacio">
-		<xs:restriction base="xs:string">
-			<xs:maxLength value="0" />
-		</xs:restriction>
-	</xs:simpleType>
-
 	<xs:simpleType name="tipoClase">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Turista"></xs:enumeration>
