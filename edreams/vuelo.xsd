@@ -4,8 +4,13 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.edreams.com"
 	xmlns:wac="http://www.iata.com/wac">
 
-<xs:import namespace="http://www.iata.com/wac"
-		schemaLocation="https://raw.githubusercontent.com/dfleta/XML_teoria/master/import/ejercicio_IATA/WAC.xsd"></xs:import>
+	<xs:import namespace="http://www.iata.com/wac"
+			   schemaLocation="https://raw.githubusercontent.com/dfleta/XML_teoria/master/import/ejercicio_IATA/WAC.xsd"></xs:import>
+
+	<xs:include schemaLocation="vuelo2.xsd"></xs:include>
+
+
+
 	<xs:element name="busqueda"><!-- elemento global -->
 		<xs:complexType>
 			<xs:sequence>
@@ -15,6 +20,7 @@
 				<xs:element name="fechaSalida" type="xs:date" />
 				<xs:element name="fechaRegreso" type="xs:date" />
 				<xs:element name="cantidad" type="tipoCantidad" />
+				<xs:element name="equipaje" type="tipoEquipaje"/>
 				<xs:element name="escalasClase" type="tipoEscalasClase" />
 				<xs:element name="hotel" type="elementoVacio"></xs:element>
 			</xs:sequence>
@@ -45,7 +51,12 @@
 		</xs:sequence>
 	</xs:complexType>
 
-
+	<xs:complexType name="tipoEquipaje">
+		<xs:sequence>
+			<xs:element name="cantidad" type="xs:integer" minOccurs="0" maxOccurs="1">
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 
 	<!-- simples -->
 
@@ -58,4 +69,25 @@
 			<xs:enumeration value="Primera"></xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+
+	<xs:simpleType name="listaEquipaje">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Instrumento"></xs:enumeration>
+			<xs:enumeration value="Animales"></xs:enumeration>
+			<xs:enumeration value="Personas"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+		<!-- extensiones -->
+
+	<xs:complexType name="extTipoEquipaje">
+	<xs:complexContent>
+		<xs:extension base="tipoEquipaje">
+			<xs:sequence>
+				<xs:element name="tipo" type="listaEquipaje"></xs:element>
+			</xs:sequence>
+		</xs:extension>
+	</xs:complexContent>
+	</xs:complexType>
+
 </xs:schema>
