@@ -9,8 +9,6 @@
 
 	<xs:include schemaLocation="vuelo2.xsd"></xs:include>
 
-
-
 	<xs:element name="busqueda"><!-- elemento global -->
 		<xs:complexType>
 			<xs:sequence>

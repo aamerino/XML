@@ -19,7 +19,7 @@
 		<adultos>1</adultos><!-- Entero -->
 		<bebes>100</bebes><!-- Entero -->
 	</cantidad>
-	<equipaje>
+	<equipaje xsi:type="edreams:extTipoEquipaje">
 		<cantidad>1</cantidad>
 		<tipo>Instrumento</tipo>
 	</equipaje>
