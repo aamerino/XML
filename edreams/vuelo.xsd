@@ -10,6 +10,8 @@
 
 	<xs:include schemaLocation="vuelo2.xsd"></xs:include>
 
+	<xs:element name="clase" type="edreams:tipoClase"></xs:element>
+
 	<xs:element name="busqueda"><!-- elemento global -->
 		<xs:complexType>
 			<xs:sequence>
