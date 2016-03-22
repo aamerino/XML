@@ -2,7 +2,8 @@
 <xs:schema attributeFormDefault="unqualified"
 	elementFormDefault="unqualified" targetNamespace="http://www.edreams.com"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.edreams.com"
-	xmlns:wac="http://www.iata.com/wac">
+	xmlns:wac="http://www.iata.com/wac"
+	xmlns:edreams="http://www.edreams.com">
 
 	<xs:import namespace="http://www.iata.com/wac"
 			   schemaLocation="https://raw.githubusercontent.com/dfleta/XML_teoria/master/import/ejercicio_IATA/WAC.xsd"></xs:import>
